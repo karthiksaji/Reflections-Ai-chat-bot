@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import "./ChatBotApp.css";
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
-import OpenAI from "openai";
 
 const ChatBotApp = ({
   onGoBack,
@@ -67,21 +66,25 @@ const ChatBotApp = ({
       localStorage.setItem("chats", JSON.stringify(updatedChats));
       setIsTyping(true);
 
-      const response = await fetch("https://api.cohere.ai/v1/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer  RsQHV0i7i032WygOH9ldPZWYOiIy0LFW87CoYUnU`,
-        },
-        body: JSON.stringify({
-          model: "command-r-08-2024",
-          messages: [{ role: "user", content: inputValue }],
-          temperature: 0.5,
-          max_tokens: 500,
-        }),
-      });
+      const response = await fetch(
+        "https://openrouter.ai/api/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer  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`,
+          },
+          body: JSON.stringify({
+            model: "deepseek/deepseek-r1:free",
+            messages: [{ role: "user", content: "inputValue" }],
+            max_tokens: 500,
+          }),
+        }
+      );
 
       const data = await response.json();
+      console.log(data);
+
       const chatResponse = data.choices[0].message.content.trim();
 
       const newResponse = {
