@@ -72,11 +72,11 @@ const ChatBotApp = ({
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer  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`,
+            Authorization: `Bearer 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`,
           },
           body: JSON.stringify({
             model: "deepseek/deepseek-r1:free",
-            messages: [{ role: "user", content: "inputValue" }],
+            messages: [{ role: "user", content: inputValue }],
             max_tokens: 500,
           }),
         }
