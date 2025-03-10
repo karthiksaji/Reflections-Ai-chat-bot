@@ -244,3 +244,78 @@
     left: 1rem;
   }
 }
+
+@media (max-width: 900px) {
+  .chat-app {
+    flex-direction: column;
+  }
+
+  .chat-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .chat-list.show {
+    transform: translateX(0);
+  }
+
+  .chat-window {
+    width: 100%;
+  }
+
+  .chat-title h3 {
+    padding-left: 5rem;
+  }
+
+  .chat-title i.bx-menu {
+    font-size: 3rem;
+    color: #fff;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  .msg-form {
+    padding-right: 2rem; /* Less padding on small screens */
+  }
+}
+
+/* For screens 500px and below (phones) */
+@media (max-width: 500px) {
+  .chat-list {
+    width: 60%; /* Adjust width of chat list */
+  }
+
+  .picker {
+    left: 1rem;
+  }
+
+  .chat-title h3 {
+    font-size: 1.6rem; /* Smaller font size */
+  }
+
+  .chat-list-item h4 {
+    font-size: 1.4rem; /* Smaller font size for list items */
+  }
+
+  .msg-input {
+    font-size: 1.6rem; /* Adjust input font size for smaller screens */
+  }
+
+  .msg-form i {
+    font-size: 2rem; /* Smaller icons */
+  }
+
+  .chat-list-item i {
+    font-size: 2rem; /* Smaller delete icon */
+  }
+
+  .chat-title i {
+    font-size: 3rem;
+  }
+}

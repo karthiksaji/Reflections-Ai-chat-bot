@@ -30,3 +30,19 @@
   transform: scale(0.98);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 768px) {
+  .start-page-button {
+    width: 80vw; /* Larger button width for smaller screens */
+    height: 25vw; /* Adjust height accordingly */
+    font-size: 6vw; /* Make the font slightly smaller for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .start-page-button {
+    width: 90vw; /* Even larger width for very small screens */
+    height: 30vw; /* Adjust height to fit */
+    font-size: 7vw; /* Adjust font size */
+  }
+}
